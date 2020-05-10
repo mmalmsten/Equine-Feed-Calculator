@@ -14,16 +14,16 @@ grains({Energy, Protein, Calcium, Phosphorus, Magnesium}, [[Amount1, Name1], [Am
     member(feed(Name2,Ts2,FEn2,FPr2,_FL2,FCs2,FP2,FM2), Feed),
     numlist(0, 20, L), member(Amount1, L), member(Amount2, L),
     (Name1 \= Name2 ; Amount1 = 0),
-    Energy1 is Energy - (Amount1 * (FEn1 / 10) * (Ts1 * 0.01)) - (Amount2 * (FEn2 / 10) * (Ts2 * 0.01)),
+    Energy1 is Energy - (Amount1 * (FEn1 / 10)) - (Amount2 * (FEn2 / 10)),
     Energy1 > -5, 
     Energy1 < 5,
-    Protein1 is Protein - (Amount1 * (FPr1 / 10) * (Ts1 * 0.01)) - (Amount2 * (FPr2 / 10) * (Ts2 * 0.01)),
+    Protein1 is Protein - (Amount1 * (FPr1 / 10)) - (Amount2 * (FPr2 / 10)),
     Protein1 =< 0,
-    Calcium1 is Calcium - (Amount1 * (FCs1 / 10) * (Ts1 * 0.01)) - (Amount2 * (FCs2 / 10) * (Ts2 * 0.01)),
+    Calcium1 is Calcium - (Amount1 * (FCs1 / 10)) - (Amount2 * (FCs2 / 10)),
     Calcium1 < 0,
-    Phosphorus1 is Phosphorus - (Amount1 * (FP1 / 10) * (Ts1 * 0.01)) - (Amount2 * (FP2 / 10) * (Ts2 * 0.01)),
+    Phosphorus1 is Phosphorus - (Amount1 * (FP1 / 10)) - (Amount2 * (FP2 / 10)),
     Phosphorus1 < 0,
-    Magnesium1 is Magnesium - (Amount1 * (FM1 / 10) * (Ts1 * 0.01)) - (Amount2 * (FM2 / 10) * (Ts2 * 0.01)),
+    Magnesium1 is Magnesium - (Amount1 * (FM1 / 10)) - (Amount2 * (FM2 / 10)),
     Magnesium1 < 0.
 
 feed(Dict, Energy, Protein, Calcium, Phosphorus, Magnesium, [[hay, Amount], [Amount1, Name1], [Amount2, Name2]], Energy3, Protein3, Calcium3, Phosphorus3, Magnesium3) :-
