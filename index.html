@@ -135,7 +135,7 @@
                 submit: function () {
                     var vm = this;
                     if ("WebSocket" in window) {
-                        var ws = new WebSocket("ws://localhost:3000/ws");
+                        var ws = new WebSocket("ws://"+window.location.host+"/ws");
                         ws.onopen = function() {
                             ws.send(JSON.stringify({
                                 age: vm.age, weight: vm.weight, walk: (eval(vm.walk.join('+'))/vm.walk.length), trotCanter: (eval(vm.trotCanter.join('+'))/vm.trotCanter.length),

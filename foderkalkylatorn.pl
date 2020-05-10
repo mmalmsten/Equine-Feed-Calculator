@@ -26,7 +26,7 @@ nutrition(Dict, Energy2, Protein, Calcium, Phosphorus, Magnesium) :-
     phosphorus(Dict.age, Dict.weight, Training, Phosphorus),
     magnesium(Dict.age, Dict.weight, Training, Magnesium).
 
-start :- http_server(http_dispatch, [port(3000)]).
+start :- http_server(http_dispatch, [port(80)]).
 
 ws(WebSocket) :-
     ws_receive(WebSocket, Message),
