@@ -1,25 +1,25 @@
-﻿Performance Low Starch,88,10,115,7.5,0.8,0.4,0.5
-Performance MaxBalance,87,10.5,75,4,0.7,0.4,0.3
-Performance,88,10,100,6.5,0.8,0.5,0.3
-Performance Energy,87,12,80,5.5,0.7,0.5,0.4
-Groov Original,88,9,90,5.5,0.8,0.5,0.3
-Groov Sensitive,88,10,105,7,0.8,0.5,0.4
-Groov Protein,88,10,115,7,0.8,0.5,0.3
-Groov Extra Protein,88,10,140,10,0.8,0.5,0.4
-High Protein Muesli,86,11.0,135,9,1,0.5,0.3
-Sensitive Muesli,86,10.3,80,4,1,0.5,0.3
-High Energy Muesli,86,12.0,105,7,1,0.5,0.3
-Sport Original,87,12,80,5.5,0.7,0.5,0.4
-Plus Energy,88,11,90,5,1.5,0.5,0.8
-Plus Protein,88,10.5,210,15,2,1,0.8
-Senior Sensitive,88,11,110,7.5,1,0.6,0.4
-Muscle Up,88,12,340,30,0.4,0.4,0.2
-Sensitive Mash,87,10.1,90,5,0.8,0.5,0.2
-Foal,89,10,135,9,1.5,0.7,0.4
-Leisure Pellets,88,10,75,4.5,0.8,0.5,0.4
-Leisure Müsli,86,10,75,4,0.9,0.5,0.2
-Miner Balance P,100,0,0,0,5.5,6.5,6
-Miner Original pellets,100,0,0,0,12,3,6
-Miner Original granulat,100,0,0,0,16,4,6
-Miner Extra,100,0,0,0,11,1.7,6
-Miner Summer,100,0,0,0,8,4,6
+﻿Performance Low Starch,10,115,7.5,0.8,0.4,0.5,1000
+Performance MaxBalance,10.5,75,4,0.7,0.4,0.3,1000
+Performance,10,100,6.5,0.8,0.5,0.3,1000
+Performance Energy,12,80,5.5,0.7,0.5,0.4,1000
+Groov Original,9,90,5.5,0.8,0.5,0.3,1000
+Groov Sensitive,10,105,7,0.8,0.5,0.4,1000
+Groov Protein,10,115,7,0.8,0.5,0.3,1000
+Groov Extra Protein,10,140,10,0.8,0.5,0.4,1000
+High Protein Muesli,11.0,135,9,1,0.5,0.3,1000
+Sensitive Muesli,10.3,80,4,1,0.5,0.3,1000
+High Energy Muesli,12.0,105,7,1,0.5,0.3,1000
+Sport Original,12,80,5.5,0.7,0.5,0.4,1000
+Plus Energy,11,90,5,1.5,0.5,0.8,1000
+Plus Protein,10.5,210,15,2,1,0.8,1000
+Senior Sensitive,11,110,7.5,1,0.6,0.4,1000
+Muscle Up,12,340,30,0.4,0.4,0.2,1000
+Sensitive Mash,10.1,90,5,0.8,0.5,0.2,1000
+Foal,10,135,9,1.5,0.7,0.4,1000
+Leisure Pellets,10,75,4.5,0.8,0.5,0.4,1000
+Leisure Müsli,10,75,4,0.9,0.5,0.2,1000
+Miner Balance P,0,0,0,5.5,6.5,6,1000
+Miner Original pellets,0,0,0,12,3,6,1000
+Miner Original granulat,0,0,0,16,4,6,1000
+Miner Extra,0,0,0,11,1.7,6,1000
+Miner Summer,0,0,0,8,4,6,1000

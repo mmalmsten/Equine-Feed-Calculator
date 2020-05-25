@@ -9,108 +9,109 @@
 </head>
 <body>
     
-    <div id="app">
+    <div id="app" class="m-auto max-w-screen-lg">
 
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            <div class="inline-block relative w-full">
-                <select v-model="age" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 focus:outline-none focus:shadow-outline">
-                    <option v-for="months in [...Array(36).keys()]" :value="months">{{ months }} months</option>
-                    <option v-for="years in [...Array(35).keys()]" :value="(years + 3) * 12">{{ (years + 3) }} years</option>
-                </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        <div class="h-full bg-blue-200 p-12 mb-12">
+            <div class="">
+                <div class="inline-block relative w-full mb-12">
+                    <select v-model="age" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 focus:outline-none focus:shadow-outline">
+                        <option v-for="months in [...Array(36).keys()]" :value="months">{{ months }} months</option>
+                        <option v-for="years in [...Array(35).keys()]" :value="(years + 3) * 12">{{ (years + 3) }} years</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
                 </div>
-            </div>
 
-            <div class="inline-block relative w-full">
-                <input v-model="weight" class="w-full bg-white inline-block focus:outline-none focus:shadow-outline border border-gray-400 py-2 px-4 block w-full appearance-none leading-normal" type="number">
-            </div>
-
-            <div class="inline-block relative w-full">
-                <select v-model="stallion" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 focus:outline-none focus:shadow-outline">
-                    <option v-for="gender in ['mare','gelding','stallion']" :value="gender == 'stallion'">{{ gender }}</option>
-                </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                <div class="inline-block relative w-full mb-12">
+                    <input v-model="weight" class="w-full bg-white inline-block focus:outline-none focus:shadow-outline border border-gray-400 py-2 px-1 block w-full appearance-none leading-normal" type="number">
                 </div>
-            </div>
 
-            <div class="inline-block relative w-full">
-                <select v-model="group" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 focus:outline-none focus:shadow-outline">
-                    <option v-for="inGroup in [true,false]" :value="inGroup">{{ inGroup }}</option>
-                </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                <div class="inline-block relative w-full mb-12">
+                    <select v-model="stallion" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 focus:outline-none focus:shadow-outline">
+                        <option v-for="gender in ['mare','gelding','stallion']" :value="gender == 'stallion'">{{ gender }}</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                </div>
+
+                <div class="w-full inline-block py-2 px-1 block w-full appearance-none leading-normal">
+                    <input type="checkbox" id="checkbox" v-model="group">
+                    <label for="checkbox">Grupphållning</label>
                 </div>
             </div>
         </div>
 
-        <table class="table-auto">
-            <thead>
-              <tr>
-                <th v-for="day in ['','monday','tuesday','wednesday','thursday','friday','saturday','sunday']" class="px-4 py-2">{{ day }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th class="border px-4 py-2">Walk</th>
-                <td v-for="day in 7" class="border px-4 py-2">
-                    <input v-model="walk[day - 1]" class="bg-white focus:outline-none focus:shadow-outline border border-gray-400 py-2 px-4 block w-full appearance-none leading-normal" type="number">
-                </td>
-              </tr>
-              <tr>
-                <th class="border px-4 py-2">Trot/Canter</th>
-                <td v-for="day in 7" class="border px-4 py-2">
-                    <input v-model="trotCanter[day - 1]" class="bg-white focus:outline-none focus:shadow-outline border border-gray-400 py-2 px-4 block w-full appearance-none leading-normal" type="number">
-                </td>
-              </tr>
-            </tbody>
-        </table>
-
-        <table class="table-auto">
-            <thead>
-              <tr>
-                <th v-for="(value, key) in hay" class="px-4 py-2">{{ key }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td v-for="(value, key) in hay" class="px-4 py-2">
-                    <input v-model="hay[key]" class="bg-white focus:outline-none focus:shadow-outline border border-gray-400 py-2 px-4 block w-full appearance-none leading-normal" type="number">
-                </td>
-              </tr>
-            </tbody>
-        </table>
-
-        <button @click="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent">
-            Button
-        </button>
-
-        <div class="w-full overflow-hidden shadow-lg" v-if="hayResult">
-            <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">{{ hayResult }} kg</div>
-                <p class="text-gray-700 text-base">hay</p>
-            </div>
-        </div>
-        <div class="w-1/2 overflow-hidden shadow-lg" v-for="(v, k) in result"  v-if="result">
-            <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">{{ v * 100 }} g</div>
-                <p class="text-gray-700 text-base">{{ k }}</p>
-            </div>
+        <div class="h-full w-full bg-blue-200 p-12 mb-12 overflow-auto">
+            <table class="table-auto">
+                <thead>
+                <tr>
+                    <th v-for="day in ['','mon','tue','wed','thu','fri','sat','sun']" class="px-4 py-2">{{ day }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th class="border px-4 py-2">Walk</th>
+                    <td v-for="day in 7" class="border px-4 py-2">
+                        <input v-model="walk[day - 1]" class="bg-white focus:outline-none focus:shadow-outline border border-gray-400 py-2 px-1 block w-full appearance-none leading-normal" type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <th class="border px-4 py-2">Trot/Canter</th>
+                    <td v-for="day in 7" class="border px-4 py-2">
+                        <input v-model="trotCanter[day - 1]" class="bg-white focus:outline-none focus:shadow-outline border border-gray-400 py-2 px-1 block w-full appearance-none leading-normal" type="number">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
 
-        <table class="table-auto" v-if="intake && need">
-            <thead>
-              <tr>
-                <th v-for="key in ['Energy','Smältbart råprotein','Ca','P','Mg']" class="px-4 py-2">{{ key }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td v-for="key in ['mj','smbrp','ca','p','mg']" class="px-4 py-2">{{ Math.round(intake[key]) }}/{{ Math.round(need[key]) }}</td>
-              </tr>
-            </tbody>
-        </table>
+        <div class="h-full bg-blue-200 p-12 mb-12">
+            <table class="table-auto">
+                <thead>
+                <tr>
+                    <th v-for="(value, key) in hay" class="px-4 py-2">{{ key }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td v-for="(value, key) in hay" class="px-4 py-2">
+                        <input v-model="hay[key]" class="bg-white focus:outline-none focus:shadow-outline border border-gray-400 py-2 px-1 block w-full appearance-none leading-normal" type="number">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="h-full bg-blue-200 p-12 mb-12 text-center">
+            <button @click="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-1 border border-blue-500 hover:border-transparent">
+                Calculate
+            </button>
+            <div v-if="result">
+                <table class="table-auto">
+                    <thead>
+                        <tr>
+                            <th>Feed</th>
+                            <th>Amount</th>
+                            <th v-for="key in ['mj','smbrp','ca','p','mg']" class="px-4 py-2"><span class="capitalize">{{ key }}</span> <span class="text-xs">({{ Math.round(need[key] * 100)/100 }})</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hay</td>
+                            <td>{{ hayResult }}kg</td>
+                            <td v-for="key in ['mj','smbrp','ca','p','mg']" class="px-4 py-2">{{ Math.round(hayResult * hay.ts * hay[key] * 100)/100 }}</td>
+                        </tr>
+                        <tr v-for="r in result" v-if="r.hg > 0">
+                            <td>{{ r.name }}</td>
+                            <td>{{ r.hg * 100 }}g</td>
+                            <td v-for="key in ['mj','smbrp','ca','p','mg']" class="px-4 py-2">{{ Math.round(r[key]/10 * 100)/10 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
     </div>
 
@@ -119,35 +120,40 @@
         var app = new Vue({
             el: '#app',
             data: {
-                age: 10,
+                age: 5 * 12,
                 weight: 350,
                 walk: [20,20,20,20,20,20,20],
                 trotCanter: [10,10,10,10,10,10,10],
                 stallion: false,
                 group: false,
-                hay: {ts: 0.861, energy: 8.6, protein: 48, calcium: 4.7, phosphorus: 1.7, magnesium: 1.7},
+                hay: {ts: 0.861, mj: 8.6, smbrp: 48, ca: 4.7, p: 1.7, mg: 1.7},
                 result: false,
                 hayResult: false,
-                need: false,
-                intake: false
+                need: false
             },
             methods: {
                 submit: function () {
                     var vm = this;
                     if ("WebSocket" in window) {
-                        var ws = new WebSocket("ws://"+window.location.host+"/ws");
+                        var ws = new WebSocket("ws://localhost:3000/ws");
                         ws.onopen = function() {
                             ws.send(JSON.stringify({
-                                age: vm.age, weight: vm.weight, walk: (eval(vm.walk.join('+'))/vm.walk.length), trotCanter: (eval(vm.trotCanter.join('+'))/vm.trotCanter.length),
+                                age: vm.age, weight: parseInt(vm.weight), walk: (eval(vm.walk.join('+'))/vm.walk.length), trotCanter: (eval(vm.trotCanter.join('+'))/vm.trotCanter.length),
                                 daysAWeek: vm.daysAWeek, stallion: vm.stallion, group: vm.group, hay: vm.hay
                             }));
                         };
                         ws.onmessage = function (evt) { 
                             var data = JSON.parse(evt.data);
-                            vm.result = data.food;
-                            vm.hayResult = data.hay;
-                            vm.need = data.need;
-                            vm.intake = data.intake;
+                            console.log(data);
+                            vm.result = data.grains;
+                            vm.hayResult = data.haykg;
+                            vm.need = {
+                                mj: data.mj,
+                                smbrp: data.smbRp, 
+                                ca: data.ca,
+                                p: data.p,
+                                mg: data.mg
+                            };
                         };
                         ws.onclose = function() { 
                             console.log("Connection is closed..."); 
