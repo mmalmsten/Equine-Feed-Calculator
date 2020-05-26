@@ -20,16 +20,24 @@ update_horse(Id, Data) :-
 
 start :- http_server(http_dispatch, [port(3000)]).
 
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
 ws(WebSocket) :-
     ws_receive(WebSocket, Message),
-    (Message.opcode == close ->  true ;   
+    (Message.opcode == close -> true ; 
+    
+        % Create Id
+        get_time(Time), 
+        random_between(1000000, 1000000000000, R), 
+        Id is Time * R,
+
         atom_string(Atom, Message.data),
         atom_json_dict(Atom, Dict, []),
-        asserta(horse(1, Dict)),
-        consult(nutrition), nutrition(1), !,
-        consult(feed), feed(1),
-        listing(horse),
-        horse(1, Result),
+        asserta(horse(Id, Dict)),
+        consult(nutrition), nutrition(Id), !,
+        consult(feed), feed(Id),
+        horse(Id, Result),
         atom_json_dict(Json, Result, []),
         atom_string(Json, Json1),
     	ws_send(WebSocket, text(Json1)),
